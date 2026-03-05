@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>¡Felicidades, Graduada! 🎓</title>
+  <style>
+    :root{
+      --bgA:#f7f7fb;
+      --bgB:#eef2ff;
+      --ink:#0f172a;
+      --mut:#475569;
+      --card:#ffffffcc;
+      --stroke:#0f172a14;
+      --accent:#4f46e5;
+      --accent2:#06b6d4;
+      --good:#16a34a;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; min-height:100vh; display:grid; place-items:center;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color:var(--ink);
+      background:
+        radial-gradient(900px 450px at 15% 10%, rgba(79,70,229,.18), transparent 55%),
+        radial-gradient(900px 500px at 85% 20%, rgba(6,182,212,.14), transparent 55%),
+        linear-gradient(165deg, var(--bgA), var(--bgB));
+      padding:22px;
+    }
+
+    .wrap{width:min(820px, 100%); position:relative}
+    .card{
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      border-radius: 22px;
+      box-shadow: 0 18px 55px rgba(2,6,23,.12);
+      overflow:hidden;
+      position:relative;
+      backdrop-filter: blur(10px);
+    }
+
+    /* top ribbon */
+    .ribbon{
+      padding:16px 18px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      background: linear-gradient(90deg, rgba(79,70,229,.12), rgba(6,182,212,.10));
+      border-bottom:1px solid var(--stroke);
+    }
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid var(--stroke);
+      font-size:13px;
+      color:var(--mut);
+      white-space:nowrap;
+    }
+    .chip strong{color:var(--ink)}
+    .chip .dot{
+      width:8px;height:8px;border-radius:50%;
+      background: radial-gradient(circle at 30% 30%, var(--accent2), var(--accent));
+    }
+
+    .content{
+      padding:22px;
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:18px;
+    }
+
+    @media (max-width: 760px){
+      .content{grid-template-columns: 1fr}
+    }
+
+    h1{
+      margin:0 0 8px;
+      font-size: clamp(28px, 4.2vw, 44px);
+      letter-spacing:-.02em;
+      line-height:1.05;
+    }
+    p{margin:0; color:var(--mut); line-height:1.55}
+
+    .hero{
+      border:1px dashed rgba(79,70,229,.28);
+      background: linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,.35));
+      border-radius:18px;
+      padding:18px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    /* floating stars */
+    .sparkle{
+      position:absolute; inset:-40px;
+      background:
+        radial-gradient(circle at 18% 30%, rgba(79,70,229,.22), transparent 35%),
+        radial-gradient(circle at 75% 35%, rgba(6,182,212,.18), transparent 35%),
+        radial-gradient(circle at 35% 85%, rgba(16,185,129,.16), transparent 40%);
+      filter: blur(0px);
+      animation: drift 8s ease-in-out infinite alternate;
+      pointer-events:none;
+    }
+    @keyframes drift{
+      from{transform:translate3d(-8px,-6px,0) scale(1)}
+      to{transform:translate3d(10px,8px,0) scale(1.03)}
+    }
+
+    .cap{
+      width:110px; height:110px;
+      margin:8px 0 12px;
+      position:relative;
+      display:grid; place-items:center;
+      filter: drop-shadow(0 14px 18px rgba(2,6,23,.18));
+      animation: bob 2.4s ease-in-out infinite;
+    }
+    @keyframes bob{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-6px)}
+    }
+    .cap svg{width:110px;height:110px}
+
+    .grid{
+      display:grid; gap:12px;
+      grid-template-columns: 1fr;
+    }
+    .panel{
+      background:#fff;
+      border:1px solid var(--stroke);
+      border-radius:18px;
+      padding:16px;
+    }
+    .kpi{
+      display:grid; grid-template-columns: 1fr 1fr; gap:10px;
+      margin-top:10px;
+    }
+    .tile{
+      border:1px solid var(--stroke);
+      border-radius:16px;
+      padding:12px;
+      background: linear-gradient(180deg, rgba(79,70,229,.06), rgba(6,182,212,.04));
+    }
+    .tile .label{font-size:12px;color:var(--mut)}
+    .tile .val{margin-top:4px;font-weight:800;font-size:18px}
+
+    .msg{
+      margin-top:10px;
+      min-height:62px;
+      color:var(--ink);
+      font-size:16px;
+      line-height:1.45;
+    }
+    .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    button{
+      cursor:pointer;
+      border-radius:14px;
+      border:1px solid var(--stroke);
+      padding:10px 14px;
+      background:#fff;
+      color:var(--ink);
+      font-weight:700;
+    }
+    button.primary{
+      border-color: rgba(79,70,229,.35);
+      background: linear-gradient(90deg, rgba(79,70,229,.14), rgba(6,182,212,.10));
+    }
+    button.good{
+      border-color: rgba(22,163,74,.25);
+      background: rgba(22,163,74,.08);
+      color: #14532d;
+    }
+    .sig{
+      margin-top:14px;
+      font-size:14px;
+      color:var(--mut);
+    }
+
+    /* toast */
+    .toast{
+      position:fixed; left:50%; bottom:18px; transform:translateX(-50%);
+      background:#0f172a;
+      color:#fff;
+      padding:10px 12px;
+      border-radius:12px;
+      font-size:13px;
+      opacity:0;
+      transition: .25s ease;
+      pointer-events:none;
+      box-shadow: 0 14px 45px rgba(2,6,23,.28);
+      max-width: min(560px, 92vw);
+      text-align:center;
+    }
+    .toast.show{opacity:1; transform:translateX(-50%) translateY(-6px)}
+
+    canvas{position:absolute; inset:0; pointer-events:none}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="card">
+      <canvas id="fx"></canvas>
+
+      <div class="ribbon">
+        <div class="chip"><span class="dot"></span> <strong id="tag">Graduación</strong> • <span id="fecha"></span></div>
+        <div class="chip">✨ Logro desbloqueado</div>
+      </div>
+
+      <div class="content">
+        <!-- LEFT -->
+        <div class="hero">
+          <div class="sparkle"></div>
+
+          <div class="cap" aria-hidden="true">
+            <!-- Birrete -->
+            <svg viewBox="0 0 128 128" fill="none">
+              <path d="M12 52L64 28l52 24-52 24L12 52Z" fill="url(#g1)"/>
+              <path d="M28 62v18c0 7 16 18 36 18s36-11 36-18V62l-36 16-36-16Z" fill="url(#g2)"/>
+              <path d="M116 52v30c0 3-4 3-4 0V54l4-2Z" fill="#0f172a"/>
+              <path d="M112 84c0 10-16 18-48 18s-48-8-48-18" stroke="rgba(15,23,42,.22)" stroke-width="5" stroke-linecap="round"/>
+              <defs>
+                <linearGradient id="g1" x1="12" y1="28" x2="116" y2="76">
+                  <stop stop-color="#4f46e5"/>
+                  <stop offset="1" stop-color="#06b6d4"/>
+                </linearGradient>
+                <linearGradient id="g2" x1="28" y1="62" x2="100" y2="104">
+                  <stop stop-color="rgba(79,70,229,.85)"/>
+                  <stop offset="1" stop-color="rgba(6,182,212,.75)"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+
+          <h1>¡Felicidades, <span id="nombre">AMIGA</span>! 🎓</h1>
+          <p id="sub">
+            Hoy cierras una etapa enorme y abres otra todavía más grande.
+            Que lo que viene te encuentre lista… y con ganas.
+          </p>
+
+          <div class="kpi" style="margin-top:14px;">
+            <div class="tile">
+              <div class="label">Modo</div>
+              <div class="val" id="modo">Profesional</div>
+            </div>
+            <div class="tile">
+              <div class="label">Estatus</div>
+              <div class="val">Graduada ✅</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="grid">
+          <div class="panel">
+            <strong>Mensajes de celebración</strong>
+            <div class="msg" id="msg">Dale a “Siguiente” para ir leyendo 💬</div>
+            <div class="btns">
+              <button class="primary" id="next">Siguiente ✨</button>
+              <button class="good" id="confetti">Celebrar 🎉</button>
+              <button id="copy">Copiar mensaje 📋</button>
+            </div>
+            <div class="sig">— Con cariño: <span id="de">Lobo</span></div>
+          </div>
+
+          <div class="panel">
+            <strong>Detalle extra (por su chamba)</strong>
+            <p style="margin-top:8px">
+              Aunque no recuerde qué estudiaste, se nota tu disciplina y tu orden.
+              Ser asistente de contadora no es cualquier cosa: exige foco, confianza y constancia.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast">Copiado ✅</div>
+  </div>
+
+  <script>
+    // ========= PERSONALIZA AQUÍ =========
+    const NOMBRE = "Tu Amiga";               // Ej: "Fer"
+    const FIRMA  = "Lobo";                  // Tu nombre/firma
+    const TAG    = "Graduación universitaria";
+    const MODO   = "Nueva etapa";
+    const MENSAJES = [
+      "Hoy celebramos tu esfuerzo, tus desvelos y tu constancia. ¡Lo lograste! 🎓✨",
+      "Que esta graduación sea el inicio de cosas bien grandes para ti. Estoy orgulloso/a de ti. 💙",
+      "Tu disciplina ya se nota en tu trabajo. Lo que viene te va a quedar perfecto. 💼📈",
+      "Que nunca te falten oportunidades… y que siempre te sobre valentía para tomarlas. 🍀",
+      "Hoy se brinda por ti: por lo que fuiste, lo que eres y lo que vas a construir. 🥂"
+    ];
+    // ===================================
+
+    document.getElementById("nombre").textContent = NOMBRE;
+    document.getElementById("de").textContent = FIRMA;
+    document.getElementById("tag").textContent = TAG;
+    document.getElementById("modo").textContent = MODO;
+    document.getElementById("fecha").textContent =
+      new Date().toLocaleDateString("es-MX", { weekday:"long", year:"numeric", month:"long", day:"numeric" });
+
+    let i = -1;
+    const msgEl = document.getElementById("msg");
+    function nextMsg(){
+      i = (i + 1) % MENSAJES.length;
+      msgEl.textContent = MENSAJES[i];
+    }
+    document.getElementById("next").addEventListener("click", nextMsg);
+
+    // Copy message
+    const toast = document.getElementById("toast");
+    function showToast(text){
+      toast.textContent = text;
+      toast.classList.add("show");
+      setTimeout(()=>toast.classList.remove("show"), 1300);
+    }
+    document.getElementById("copy").addEventListener("click", async () => {
+      try{
+        await navigator.clipboard.writeText(msgEl.textContent);
+        showToast("Mensaje copiado ✅");
+      }catch(e){
+        showToast("No se pudo copiar (abre en Chrome) ⚠️");
+      }
+    });
+
+    // Confeti (canvas)
+    const canvas = document.getElementById("fx");
+    const ctx = canvas.getContext("2d");
+    let W, H, parts = [], anim = null;
+
+    function resize(){
+      const r = canvas.getBoundingClientRect();
+      W = canvas.width = Math.floor(r.width * devicePixelRatio);
+      H = canvas.height = Math.floor(r.height * devicePixelRatio);
+    }
+    window.addEventListener("resize", resize);
+    resize();
+
+    function launch(n=150){
+      parts = [];
+      const burstX = W * (0.35 + Math.random()*0.3);
+      const burstY = H * 0.15;
+
+      for(let k=0;k<n;k++){
+        const ang = (Math.random()*Math.PI) + Math.PI; // hacia abajo
+        const sp  = (3 + Math.random()*5) * devicePixelRatio;
+        parts.push({
+          x: burstX + (Math.random()-0.5)*40*devicePixelRatio,
+          y: burstY + (Math.random()-0.5)*20*devicePixelRatio,
+          vx: Math.cos(ang) * (sp * (0.35+Math.random()*0.65)),
+          vy: Math.sin(ang) * (sp * (0.35+Math.random()*0.65)) + 1.5*devicePixelRatio,
+          g: 0.10 * devicePixelRatio,
+          s: (2 + Math.random()*5) * devicePixelRatio,
+          a: Math.random()*Math.PI*2,
+          va: (Math.random()-0.5)*0.25,
+          h: Math.floor(Math.random()*360),
+          life: 140 + Math.random()*80
+        });
+      }
+      if(anim) cancelAnimationFrame(anim);
+      tick();
+    }
+
+    function tick(){
+      ctx.clearRect(0,0,W,H);
+      for(const p of parts){
+        p.vy += p.g;
+        p.x += p.vx;
+        p.y += p.vy;
+        p.a += p.va;
+        p.life -= 1;
+
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.a);
+        ctx.fillStyle = `hsl(${p.h} 95% 60% / .95)`;
+        ctx.fillRect(-p.s/2, -p.s/2, p.s, p.s*0.65);
+        ctx.restore();
+      }
+      parts = parts.filter(p => p.life > 0 && p.y < H + 60);
+      if(parts.length) anim = requestAnimationFrame(tick);
+      else { anim = null; ctx.clearRect(0,0,W,H); }
+    }
+
+    document.getElementById("confetti").addEventListener("click", () => {
+      launch();
+      showToast("¡A celebrar! 🎉");
+    });
+
+    // Autostart: primer mensaje
+    nextMsg();
+  </script>
+</body>
+</html>
