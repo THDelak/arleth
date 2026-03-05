@@ -25,14 +25,14 @@
         radial-gradient(900px 450px at 15% 10%, rgba(79,70,229,.18), transparent 55%),
         radial-gradient(900px 500px at 85% 20%, rgba(6,182,212,.14), transparent 55%),
         linear-gradient(165deg, var(--bgA), var(--bgB));
-      padding:22px;
+      padding: clamp(12px, 3vw, 22px);
     }
 
     .wrap{width:min(820px, 100%); position:relative}
     .card{
       background: var(--card);
       border: 1px solid var(--stroke);
-      border-radius: 22px;
+      border-radius: clamp(14px, 5vw, 22px);
       box-shadow: 0 18px 55px rgba(2,6,23,.12);
       overflow:hidden;
       position:relative;
@@ -41,10 +41,11 @@
 
     /* top ribbon */
     .ribbon{
-      padding:16px 18px;
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding: clamp(12px, 3vw, 16px) clamp(12px, 4vw, 18px);
+      display:flex; align-items:center; justify-content:space-between; gap:clamp(8px, 2vw, 12px);
       background: linear-gradient(90deg, rgba(79,70,229,.12), rgba(6,182,212,.10));
       border-bottom:1px solid var(--stroke);
+      flex-wrap: wrap;
     }
     .chip{
       display:inline-flex; align-items:center; gap:8px;
@@ -52,7 +53,7 @@
       border-radius:999px;
       background:#fff;
       border:1px solid var(--stroke);
-      font-size:13px;
+      font-size:clamp(11px, 2.5vw, 13px);
       color:var(--mut);
       white-space:nowrap;
     }
@@ -63,29 +64,32 @@
     }
 
     .content{
-      padding:22px;
+      padding: clamp(14px, 4vw, 22px);
       display:grid;
       grid-template-columns: 1.1fr .9fr;
-      gap:18px;
+      gap: clamp(12px, 3vw, 18px);
     }
 
     @media (max-width: 760px){
-      .content{grid-template-columns: 1fr}
+      .content{
+        grid-template-columns: 1fr;
+        padding: clamp(12px, 3vw, 18px);
+      }
     }
 
     h1{
       margin:0 0 8px;
-      font-size: clamp(28px, 4.2vw, 44px);
+      font-size: clamp(24px, 6vw, 44px);
       letter-spacing:-.02em;
       line-height:1.05;
     }
-    p{margin:0; color:var(--mut); line-height:1.55}
+    p{margin:0; color:var(--mut); line-height:1.55; font-size: clamp(14px, 2.2vw, 16px)}
 
     .hero{
       border:1px dashed rgba(79,70,229,.28);
       background: linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,.35));
-      border-radius:18px;
-      padding:18px;
+      border-radius: clamp(12px, 3vw, 18px);
+      padding: clamp(14px, 4vw, 18px);
       position:relative;
       overflow:hidden;
     }
@@ -107,7 +111,8 @@
     }
 
     .cap{
-      width:110px; height:110px;
+      width: clamp(80px, 20vw, 110px);
+      height: clamp(80px, 20vw, 110px);
       margin:8px 0 12px;
       position:relative;
       display:grid; place-items:center;
@@ -118,47 +123,48 @@
       0%,100%{transform:translateY(0)}
       50%{transform:translateY(-6px)}
     }
-    .cap svg{width:110px;height:110px}
+    .cap svg{width: 100%;height: 100%}
 
     .grid{
-      display:grid; gap:12px;
+      display:grid; gap: clamp(10px, 2.5vw, 12px);
       grid-template-columns: 1fr;
     }
     .panel{
       background:#fff;
       border:1px solid var(--stroke);
-      border-radius:18px;
-      padding:16px;
+      border-radius: clamp(12px, 3vw, 18px);
+      padding: clamp(12px, 3vw, 16px);
     }
     .kpi{
-      display:grid; grid-template-columns: 1fr 1fr; gap:10px;
+      display:grid; grid-template-columns: 1fr 1fr; gap: clamp(8px, 2vw, 10px);
       margin-top:10px;
     }
     .tile{
       border:1px solid var(--stroke);
-      border-radius:16px;
-      padding:12px;
+      border-radius: clamp(12px, 2.5vw, 16px);
+      padding: clamp(10px, 2.5vw, 12px);
       background: linear-gradient(180deg, rgba(79,70,229,.06), rgba(6,182,212,.04));
     }
-    .tile .label{font-size:12px;color:var(--mut)}
-    .tile .val{margin-top:4px;font-weight:800;font-size:18px}
+    .tile .label{font-size: clamp(11px, 2vw, 12px);color:var(--mut)}
+    .tile .val{margin-top:4px;font-weight:800;font-size: clamp(14px, 3.5vw, 18px)}
 
     .msg{
       margin-top:10px;
       min-height:62px;
       color:var(--ink);
-      font-size:16px;
+      font-size: clamp(14px, 2vw, 16px);
       line-height:1.45;
     }
-    .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .btns{display:flex;gap: clamp(8px, 2vw, 10px);flex-wrap:wrap;margin-top:12px}
     button{
       cursor:pointer;
-      border-radius:14px;
+      border-radius: clamp(10px, 2.5vw, 14px);
       border:1px solid var(--stroke);
-      padding:10px 14px;
+      padding: clamp(8px, 2vw, 10px) clamp(10px, 3vw, 14px);
       background:#fff;
       color:var(--ink);
       font-weight:700;
+      font-size: clamp(13px, 2vw, 14px);
     }
     button.primary{
       border-color: rgba(79,70,229,.35);
@@ -171,7 +177,7 @@
     }
     .sig{
       margin-top:14px;
-      font-size:14px;
+      font-size: clamp(12px, 1.8vw, 14px);
       color:var(--mut);
     }
 
@@ -257,16 +263,15 @@
             <div class="btns">
               <button class="primary" id="next">Siguiente ✨</button>
               <button class="good" id="confetti">Celebrar 🎉</button>
-              <button id="copy">Copiar mensaje 📋</button>
             </div>
-            <div class="sig">— Con cariño: <span id="de">Lobo</span></div>
+            <div class="sig">— Con cariño: <span id="de">Ian Kaled</span></div>
           </div>
 
           <div class="panel">
-            <strong>Detalle extra (por su chamba)</strong>
+            <strong>Detalle extra</strong>
             <p style="margin-top:8px">
-              Aunque no recuerde qué estudiaste, se nota tu disciplina y tu orden.
-              Ser asistente de contadora no es cualquier cosa: exige foco, confianza y constancia.
+              Me has apoyado en cosas importantes de mi vida, y me emociona poder celebrar este logro contigo. 
+              Sé que el camino no siempre fue fácil, pero tu dedicación y pasión te han llevado a esta meta increíble. ¡Felicitaciones!
             </p>
           </div>
         </div>
@@ -278,8 +283,8 @@
 
   <script>
     // ========= PERSONALIZA AQUÍ =========
-    const NOMBRE = "Tu Amiga";               // Ej: "Fer"
-    const FIRMA  = "Lobo";                  // Tu nombre/firma
+    const NOMBRE = "Arleth";               // Ej: "Fer"
+    const FIRMA  = "Ian Kaled";                  // Tu nombre/firma
     const TAG    = "Graduación universitaria";
     const MODO   = "Nueva etapa";
     const MENSAJES = [
